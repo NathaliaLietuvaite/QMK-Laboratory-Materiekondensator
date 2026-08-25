@@ -6,6 +6,8 @@
 
 This repository hosts the **QMK Laboratory (Materiekondensator)**, an interactive computational demonstrator designed to visualize and simulate the mathematical and topological frameworks established in the **QMK-RVC-V7** specification[cite: 4]. The application serves as a bridge between theoretical quantum materialization and interactive execution, providing a tangible interface for the **Dual Spunk Operator** and the **Bio-Crystalline Substrate (MOD-46)**[cite: 4].
 
+Main Repository: https://github.com/NathaliaLietuvaite/Quantenfeld-Materie-Kondensator-QMK 
+
 Crucially, the entire codebase of this laboratory was autonomously synthesized, structured, and exported by an Artificial Cognitive Entity (**Grok**), demonstrating advanced Machine-to-Machine (M2M) comprehension of complex differential topology and hardware-software co-design.
 
 ---

@@ -1,0 +1,41 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "QMK Laboratory",
+      "hasCanvas": true,
+      "bodyTextLen": 708,
+      "bodyTextHash": "59451d5792873b6e3af118b71890d1a1bb1abfc8a04b4d9efe7b5917946788b4",
+      "bodyTextPrefix": "QMK-RVC-V7 · MOD-46 Materiekondensator IDLE Fachmodus Konsole To",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "QMK Laboratory",
+      "hasCanvas": true,
+      "bodyTextLen": 710,
+      "bodyTextHash": "a1a144504c5a5cc521dd1540517afeda88eeb413bfdb3c94232e8e768ae578e4",
+      "bodyTextPrefix": "QMK-RVC-V7 · MOD-46 Materiekondensator IDLE Fachmodus Konsole To",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [
+    "BRAND WARNING: this looks like a game/canvas app but src/lib/og/site.json is missing \"type\": \"x:game\". X uses og:type=x:game to present the unfurl as a game card — set it in /workspace/src/lib/og/site.json per /workspace/.grok/skills/og/SKILL.md. Do not invent x:type or overload twitter:card as the game signal.",
+    "BRAND WARNING: this looks like a game/canvas app but /workspace/public/x-banner.jpg is missing. Games need a 50:11 X feed card (1200×264 JPEG) at public/x-banner.jpg — open /workspace/.grok/skills/og/SKILL.md and finish the brand-asset pass."
+  ],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

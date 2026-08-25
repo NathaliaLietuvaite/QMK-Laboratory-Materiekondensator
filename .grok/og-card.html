@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: "LibSerif";
+      src: url("file:///usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf") format("truetype");
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: "LibSerif";
+      src: url("file:///usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf") format("truetype");
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: "LibSans";
+      src: url("file:///usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf") format("truetype");
+      font-weight: 400;
+    }
+    html, body {
+      margin: 0;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #0c0d0e;
+    }
+    .stage {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      background: #0c0d0e;
+    }
+    .stage svg.field {
+      position: absolute;
+      inset: 0;
+    }
+    .lockup {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      text-align: center;
+      pointer-events: none;
+    }
+    .mark {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 22px;
+    }
+    .title {
+      margin: 0;
+      font-family: "LibSerif", "Liberation Serif", serif;
+      font-weight: 400;
+      font-size: 68px;
+      line-height: 1.05;
+      letter-spacing: 0.045em;
+      color: #ececea;
+      -webkit-font-smoothing: antialiased;
+    }
+    .rule {
+      width: 168px;
+      height: 1px;
+      margin: 22px 0 16px;
+      background: #9aafa6;
+      opacity: 0.7;
+    }
+    .sub {
+      margin: 0;
+      font-family: "LibSans", "Liberation Sans", sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: #9aafa6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .plate {
+      position: absolute;
+      left: 36px;
+      right: 36px;
+      bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      font-family: "LibSans", "Liberation Sans", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      color: #6f8f82;
+      opacity: 0.85;
+      z-index: 5;
+    }
+    .plate-top {
+      position: absolute;
+      left: 36px;
+      right: 36px;
+      top: 28px;
+      display: flex;
+      justify-content: space-between;
+      font-family: "LibSans", "Liberation Sans", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      color: #6f8f82;
+      opacity: 0.85;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <svg class="field" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="well" cx="50%" cy="48%" r="58%">
+          <stop offset="0%" stop-color="#161a19" />
+          <stop offset="55%" stop-color="#0f1112" />
+          <stop offset="100%" stop-color="#0c0d0e" />
+        </radialGradient>
+        <radialGradient id="ringGlow" cx="50%" cy="48%" r="42%">
+          <stop offset="0%" stop-color="#6f8f82" stop-opacity="0.14" />
+          <stop offset="70%" stop-color="#9aafa6" stop-opacity="0.04" />
+          <stop offset="100%" stop-color="#0c0d0e" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="helixA" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ececea" stop-opacity="0.15" />
+          <stop offset="50%" stop-color="#ececea" stop-opacity="0.72" />
+          <stop offset="100%" stop-color="#ececea" stop-opacity="0.15" />
+        </linearGradient>
+        <linearGradient id="helixB" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#9aafa6" stop-opacity="0.12" />
+          <stop offset="50%" stop-color="#9aafa6" stop-opacity="0.55" />
+          <stop offset="100%" stop-color="#9aafa6" stop-opacity="0.12" />
+        </linearGradient>
+        <filter id="grain" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n" />
+          <feColorMatrix type="saturate" values="0" />
+          <feComponentTransfer>
+            <feFuncA type="table" tableValues="0 0.045" />
+          </feComponentTransfer>
+        </filter>
+        <pattern id="hex" width="44" height="76.21" patternUnits="userSpaceOnUse">
+          <g fill="none" stroke="#9aafa6" stroke-width="0.6" opacity="0.22">
+            <polygon points="22,0 44,12.702 44,38.105 22,50.807 0,38.105 0,12.702" />
+            <polygon points="22,50.807 44,63.509 44,88.912 22,101.614 0,88.912 0,63.509" />
+          </g>
+        </pattern>
+      </defs>
+
+      <rect width="1200" height="630" fill="url(#well)" />
+      <rect width="1200" height="630" fill="url(#hex)" opacity="0.55" />
+      <rect width="1200" height="630" fill="url(#ringGlow)" />
+
+      <!-- warped fiber rings -->
+      <g fill="none" transform="translate(600 308)">
+        <ellipse rx="168" ry="92" stroke="#6f8f82" stroke-width="1.1" opacity="0.55" transform="rotate(-18)" />
+        <ellipse rx="214" ry="118" stroke="#9aafa6" stroke-width="0.9" opacity="0.42" transform="rotate(12)" />
+        <ellipse rx="268" ry="148" stroke="#9aafa6" stroke-width="0.8" opacity="0.32" transform="rotate(-8)" stroke-dasharray="3 7" />
+        <ellipse rx="322" ry="176" stroke="#6f8f82" stroke-width="0.7" opacity="0.28" transform="rotate(16)" />
+        <ellipse rx="386" ry="208" stroke="#9aafa6" stroke-width="0.6" opacity="0.2" transform="rotate(-14)" />
+        <ellipse rx="148" ry="148" stroke="#ececea" stroke-width="0.5" opacity="0.18" />
+        <circle r="6" fill="#9aafa6" opacity="0.55" />
+        <circle r="2.2" fill="#ececea" opacity="0.9" />
+      </g>
+
+      <!-- instrument bezel ticks -->
+      <g transform="translate(600 308)" fill="none" stroke="#9aafa6">
+        <!-- ticks drawn by script-like static groups -->
+        <g id="ticks" opacity="0.45"></g>
+      </g>
+
+      <!-- silver-doped DNA helices -->
+      <g id="helix-right"></g>
+      <g id="helix-left"></g>
+
+      <!-- inset plate frame -->
+      <rect x="22" y="22" width="1156" height="586" fill="none" stroke="#9aafa6" stroke-width="0.75" opacity="0.35" />
+      <rect x="28" y="28" width="1144" height="574" fill="none" stroke="#6f8f82" stroke-width="0.5" opacity="0.22" />
+
+      <!-- corner fiducials -->
+      <g stroke="#9aafa6" stroke-width="1" fill="none" opacity="0.55">
+        <path d="M40 58 V40 H58" />
+        <path d="M1160 58 V40 H1142" />
+        <path d="M40 572 V590 H58" />
+        <path d="M1160 572 V590 H1142" />
+      </g>
+
+      <rect width="1200" height="630" filter="url(#grain)" />
+    </svg>
+
+    <div class="plate-top">
+      <span>QMK LABORATORY</span>
+      <span>PLATE 07 · RVC-V7</span>
+    </div>
+
+    <div class="lockup">
+      <svg class="mark" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="18,2.2 32.4,10.5 32.4,25.5 18,33.8 3.6,25.5 3.6,10.5"
+                 fill="none" stroke="#9aafa6" stroke-width="1.6" stroke-linejoin="round" />
+        <polygon points="18,12 24.2,15.6 24.2,20.4 18,24 11.8,20.4 11.8,15.6" fill="#6f8f82" />
+      </svg>
+      <h1 class="title">QMK Laboratory</h1>
+      <div class="rule"></div>
+      <p class="sub">RVC-V7 · Materialization Console</p>
+    </div>
+
+    <div class="plate">
+      <span>FIG. 1 · 7D FIBER TOPOLOGY</span>
+      <span>MATTER CONDENSER</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const svgNS = "http://www.w3.org/2000/svg";
+      const field = document.querySelector("svg.field");
+
+      function ticks() {
+        const g = document.createElementNS(svgNS, "g");
+        g.setAttribute("transform", "translate(600 308)");
+        g.setAttribute("stroke", "#9aafa6");
+        g.setAttribute("stroke-linecap", "square");
+        g.setAttribute("fill", "none");
+        g.setAttribute("opacity", "0.4");
+        for (let i = 0; i < 72; i++) {
+          const a = (i / 72) * Math.PI * 2;
+          const major = i % 6 === 0;
+          const r0 = 248;
+          const r1 = major ? 262 : 254;
+          const p = document.createElementNS(svgNS, "line");
+          p.setAttribute("x1", (Math.cos(a) * r0).toFixed(2));
+          p.setAttribute("y1", (Math.sin(a) * r0).toFixed(2));
+          p.setAttribute("x2", (Math.cos(a) * r1).toFixed(2));
+          p.setAttribute("y2", (Math.sin(a) * r1).toFixed(2));
+          p.setAttribute("stroke-width", major ? "1.2" : "0.6");
+          g.appendChild(p);
+        }
+        field.appendChild(g);
+      }
+
+      function helix(cx, y0, y1, amp, turns, flip) {
+        const g = document.createElementNS(svgNS, "g");
+        g.setAttribute("fill", "none");
+        g.setAttribute("stroke-linecap", "round");
+        const n = 220;
+        const ptsA = [];
+        const ptsB = [];
+        const zA = [];
+        for (let i = 0; i <= n; i++) {
+          const t = i / n;
+          const ang = t * turns * Math.PI * 2 + (flip ? Math.PI / 2 : 0);
+          const y = y0 + t * (y1 - y0);
+          const xa = cx + amp * Math.sin(ang);
+          const xb = cx + amp * Math.sin(ang + Math.PI);
+          ptsA.push([xa, y, Math.cos(ang)]);
+          ptsB.push([xb, y, Math.cos(ang + Math.PI)]);
+        }
+        function path(pts) {
+          return pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(2) + " " + p[1].toFixed(2)).join(" ");
+        }
+        const a = document.createElementNS(svgNS, "path");
+        a.setAttribute("d", path(ptsA));
+        a.setAttribute("stroke", "url(#helixA)");
+        a.setAttribute("stroke-width", "1.35");
+        const b = document.createElementNS(svgNS, "path");
+        b.setAttribute("d", path(ptsB));
+        b.setAttribute("stroke", "url(#helixB)");
+        b.setAttribute("stroke-width", "1.2");
+        g.appendChild(a);
+        g.appendChild(b);
+        const step = 8;
+        for (let i = 0; i <= n; i += step) {
+          const pa = ptsA[i];
+          const pb = ptsB[i];
+          const rung = document.createElementNS(svgNS, "line");
+          rung.setAttribute("x1", pa[0].toFixed(2));
+          rung.setAttribute("y1", pa[1].toFixed(2));
+          rung.setAttribute("x2", pb[0].toFixed(2));
+          rung.setAttribute("y2", pb[1].toFixed(2));
+          rung.setAttribute("stroke", "#ececea");
+          rung.setAttribute("stroke-width", "0.7");
+          rung.setAttribute("opacity", String(0.18 + 0.28 * (0.5 + 0.5 * pa[2])));
+          g.appendChild(rung);
+        }
+        field.appendChild(g);
+      }
+
+      ticks();
+      helix(980, 70, 560, 28, 7.5, false);
+      helix(220, 70, 560, 26, 7.5, true);
+    })();
+  </script>
+</body>
+</html>
